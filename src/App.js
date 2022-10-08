@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./App.css";
+import CardList from "./components/card-list/CardList";
+import Search from "./components/search-box/Search";
 
 export default class App extends Component {
   constructor() {
@@ -37,17 +40,11 @@ export default class App extends Component {
       return monster.name.toLowerCase().includes(search);
     });
     return (
-      <>
-        <input
-          className="input-search"
-          type="search"
-          placeholder="Search Monster"
-          onChange={searchHandler}
-        />
-        {filteredMonster.map((monster) => {
-          return <h1 key={monster.id}>{monster.name}</h1>;
-        })}
-      </>
+      <div className="App">
+        <h1>Monsters Rolodex</h1>
+        <Search onChangeHandler={searchHandler} />
+        <CardList monsters={filteredMonster} />
+      </div>
     );
   }
 }
