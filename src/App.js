@@ -25,7 +25,9 @@ export default class App extends Component {
       return monster.name.toLowerCase().includes(e.target.value.toLowerCase());
     });
     this.setState(() => {
-      return { monsters: filteredMonster };
+      return {
+        monsters: filteredMonster,
+      };
     });
   }
 
